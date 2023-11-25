@@ -48,6 +48,12 @@ abstract class StateViewModel<
             work.invoke()
         }
     }
+
+    protected fun setState(state: STATE){
+        startWorkInViewModelScope {
+            _stateFlow.emit(state)
+        }
+    }
 }
 
 interface ViewModelEvent
