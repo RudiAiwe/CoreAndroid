@@ -17,12 +17,12 @@ abstract class StateViewModel<
         STATE : ViewModelState
         >:ViewModel() {
 
-    protected val _stateFlow: MutableStateFlow<STATE?> = MutableStateFlow(null)
+    private val _stateFlow: MutableStateFlow<STATE?> = MutableStateFlow(null)
 
     val stateFlow:StateFlow<STATE?>
         get() = _stateFlow
 
-    protected val _actionFlow:MutableSharedFlow<ACTION> = MutableSharedFlow()
+    private val _actionFlow:MutableSharedFlow<ACTION> = MutableSharedFlow()
 
     val actionFlow: SharedFlow<ACTION>
         get() = _actionFlow
