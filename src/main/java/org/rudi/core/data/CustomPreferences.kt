@@ -18,6 +18,12 @@ open class CustomPreferences(
         }
     }
 
+    protected fun putLong(keyName: String, value: Long) {
+        sharedPreferences.apply {
+            edit().putLong(keyName, value).apply()
+        }
+    }
+
     protected fun putString(keyName: String, value: String) {
         sharedPreferences.apply {
             edit()
@@ -42,19 +48,23 @@ open class CustomPreferences(
         }
     }
 
-    protected fun getInt(keyName: String): Int{
-        return sharedPreferences.getInt(keyName, 0)
+    protected fun getInt(keyName: String): Int {
+        return sharedPreferences.getInt(keyName, -1)
     }
 
     protected fun getString(keyName: String): String {
-        return sharedPreferences.getString(keyName, "")?:""
+        return sharedPreferences.getString(keyName, "") ?: ""
     }
 
-    protected fun getFloat(keyName: String): Float{
+    protected fun getFloat(keyName: String): Float {
         return sharedPreferences.getFloat(keyName, 0f)
     }
 
-    protected fun getBoolean(keyName: String): Boolean{
+    protected fun getBoolean(keyName: String): Boolean {
         return sharedPreferences.getBoolean(keyName, false)
+    }
+
+    protected fun getLong(keyName: String): Long {
+        return sharedPreferences.getLong(keyName, -1)
     }
 }
