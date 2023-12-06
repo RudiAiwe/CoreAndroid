@@ -35,8 +35,8 @@ abstract class StateViewModel<
         }
     }
 
-    protected fun startWorkInIoContext(work: suspend () -> Unit){
-        startWorkInViewModelScope {
+    protected fun startWorkInIoContext(work: suspend () -> Unit): Job{
+        return startWorkInViewModelScope {
             withContext(Dispatchers.IO){
                 work.invoke()
             }
